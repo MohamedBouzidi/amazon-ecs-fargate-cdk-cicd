@@ -103,7 +103,7 @@ export class EcsCdkStack extends cdk.Stack {
       repo: 'amazon-ecs-fargate-cdk-cicd',
       webhook: true, // optional, default: true if `webhookFilteres` were provided, false otherwise
       webhookFilters: [
-        codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('master'),
+        codebuild.FilterGroup.inEventOf(codebuild.EventAction.PUSH).andBranchIs('main'),
       ], // optional, by default all pushes and Pull Requests will trigger a build
     });
 
@@ -168,8 +168,8 @@ export class EcsCdkStack extends cdk.Stack {
       actionName: 'GitHub_Source',
       owner: 'MohamedBouzidi',
       repo: 'amazon-ecs-fargate-cdk-cicd',
-      branch: 'master',
-      oauthToken: cdk.SecretValue.secretsManager("/my/github/token"),
+      branch: 'main',
+      oauthToken: cdk.SecretValue.secretsManager("/my/github/token2"),
       //oauthToken: cdk.SecretValue.plainText('<plain-text>'),
       output: sourceOutput
     });
